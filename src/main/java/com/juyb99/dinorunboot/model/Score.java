@@ -1,6 +1,7 @@
 package com.juyb99.dinorunboot.model;
 
 import jakarta.persistence.*;
+import jdk.jfr.Unsigned;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,13 +22,14 @@ public class Score {
     private String nickname;
 
     @Column(name = "point")
-    private int point;
+    @Unsigned
+    private Long point;
 
     @Column(name = "created_at")
     @CreationTimestamp
     private Timestamp createdAt;
 
-    public Score(String nickname, int point) {
+    public Score(String nickname, Long point) {
         this.nickname = nickname;
         this.point = point;
     }

@@ -26,6 +26,8 @@
     />
     <meta property="og:image" content="/unity/TemplateData/og.png"/>
     <meta property="og:type" content="website"/>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 </head>
 <body>
 <nav
@@ -59,6 +61,7 @@
         <h2 class="mb-3">🏅 Submit Your Score 🏅</h2>
         <form class="score-form">
             <div class="col-md-4">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                 <input
                         type="text"
                         class="form-control"

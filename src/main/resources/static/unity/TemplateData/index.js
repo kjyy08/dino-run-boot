@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
     AOS.init();
 
+    const token = document.querySelector('meta[name="_csrf"]').getAttribute('content');
+    const header = document.querySelector('meta[name="_csrf_header"]').getAttribute('content');
     let receiveScore = 0;
 
     document.querySelector(".score-form").addEventListener("submit", async (event) => {
@@ -25,7 +27,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         await fetch(`/api/scores`, {
             method: "POST",
-            headers: {"Content-type": "application/json"},
+            headers: {
+                "Content-type": "application/json",
+                [header]: token
+            },
             body: JSON.stringify({nickname: playerName, point: receiveScore}),
         });
 

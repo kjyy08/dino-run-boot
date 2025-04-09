@@ -23,13 +23,13 @@ public class Score {
 
     @Column(name = "point")
     @Unsigned
-    private Long point;
+    private Integer point;
 
     @Column(name = "created_at")
     @CreationTimestamp
     private Timestamp createdAt;
 
-    public Score(String nickname, Long point) {
+    public Score(String nickname, Integer point) {
         this.nickname = nickname;
         this.point = point;
     }

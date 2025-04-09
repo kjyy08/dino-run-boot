@@ -1,4 +1,4 @@
 package com.juyb99.dinorunboot.dto.response;
 
-public record ScoreResponseDTO(long scoreId, String nickname, Long point) {
+public record ScoreResponseDTO(long scoreId, String nickname, Integer point) {
 }
